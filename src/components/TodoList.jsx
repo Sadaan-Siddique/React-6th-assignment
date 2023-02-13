@@ -11,8 +11,8 @@ function TodoList() {
 
     // JS
     const btnfunc = (e) => {
-        if (inptValue.current.value == '') {
-            alert('Type Some Value');
+        if (inptValue.current.value === '') {
+            alert('Type Some Value String');
         } else {
             e.preventDefault()
             setInptData(inptValue.current.value);
