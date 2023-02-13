@@ -7,6 +7,7 @@ function TodoList() {
     const [inptData, setInptData] = useState([]);
     const [inptArr, setInptArr] = useState([]);
     const inptValue = useRef();
+    
 
     // JS
     const btnfunc = (e) => {
@@ -20,11 +21,11 @@ function TodoList() {
     useEffect(() => {
         setInptArr([...inptArr, inptData])
         inptValue.current.value = '';
-        console.log(inptArr);
+        console.log(inptData);
     }, [inptData])
     return (
         <>
-            <div className='todo-div container w-50 text-center mt-4 ps-5 pe-5'>
+            <div className='todo-div container text-center mt-4 ps-5 pe-5'>
                 <h1> React Todo List  </h1>
                 <label></label>
                 <input ref={inptValue} type="text" />

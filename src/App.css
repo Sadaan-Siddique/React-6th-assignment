@@ -36,3 +36,10 @@
   letter-spacing: 0px;
   background-color: rgb(39, 39, 39);
 }
+.todo-div table tbody tr td{
+position: relative;
+}
+.todo-div table tbody tr td span{
+  position: absolute;
+  left: 90%;
+}
