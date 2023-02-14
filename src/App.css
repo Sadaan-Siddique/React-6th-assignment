@@ -11,7 +11,7 @@
   border: none;
   outline: none;
   box-shadow: 1px 1px 3px black;
-  padding: 3px 10px;
+  padding: 4px 10px;
   transition: all;
   transition-duration: 0.7s;
 
@@ -19,7 +19,7 @@
 .todo-div input:hover{
   box-shadow: 1px 1px 8px black;
 }
-.todo-div button{
+.todo-div .list-btn{
   width: 90%;
   border-radius: 5px;
   border: none;
@@ -32,14 +32,21 @@
   transition: all;
   transition-duration: 0.5s;
 }
-.todo-div button:hover{
+.todo-div .list-btn:hover{
   letter-spacing: 0px;
   background-color: rgb(39, 39, 39);
 }
 .todo-div table tbody tr td{
 position: relative;
 }
+.todo-div table tbody tr td button{
+  border: none;
+  background-color: transparent;
+  width: 60%;
+  cursor: pointer;
+}
 .todo-div table tbody tr td span{
   position: absolute;
-  left: 90%;
+  /* left: 90%; */
+  cursor: pointer;
 }

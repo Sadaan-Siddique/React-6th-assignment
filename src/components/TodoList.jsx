@@ -25,11 +25,11 @@ function TodoList() {
     }, [inptData])
     return (
         <>
-            <div className='todo-div container text-center mt-4 ps-5 pe-5'>
+            <div className='todo-div container text-center mt-4 py-5 px-5'>
                 <h1> React Todo List  </h1>
                 <label></label>
-                <input ref={inptValue} type="text" />
-                <button onClick={btnfunc} className=''>Click</button>
+                <input ref={inptValue} placeholder='Type something :' type="text" />
+                <button onClick={btnfunc} className='list-btn'>Click</button>
                 <table className='table text-center'>
                     <tbody>
                         {inptArr.map((item) => {
