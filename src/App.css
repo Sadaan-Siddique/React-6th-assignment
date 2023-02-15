@@ -46,7 +46,7 @@ position: relative;
   cursor: pointer;
 }
 .todo-div table tbody tr td span{
-  position: absolute;
+  /* position: absolute; */
   /* left: 90%; */
   cursor: pointer;
 }
