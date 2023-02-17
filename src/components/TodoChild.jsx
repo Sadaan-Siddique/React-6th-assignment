@@ -56,7 +56,7 @@ const deletHandler = (key) => {
 
                 </td>
                 <td>
-                    <span onClick={ e=> {
+                    <span onClick={()=> {
                         props.deleteList(props.index)
                         }}>
                         <svg style={{ visibility: 'visible' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
