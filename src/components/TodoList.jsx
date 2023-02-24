@@ -1,13 +1,14 @@
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import TodoChild from './TodoChild';
+import { Link } from 'react-router-dom';
 import '../App.css';
 function TodoList() {
     // React Hooks 
-    const [inptData, setInptData] = useState([]);
+    const [inptData, setInptData] = useState('');
     const [inptArr, setInptArr] = useState([]);
     const inptValue = useRef();
-    
+
 
     // JS
     const btnfunc = (e) => {
@@ -21,12 +22,17 @@ function TodoList() {
     useEffect(() => {
         setInptArr([...inptArr, inptData])
         inptValue.current.value = '';
-        console.log(inptData);
     }, [inptData])
-    const deleteList = (key) =>{
-        let newArr = [...inptArr];
-        newArr.splice(key,1);
-        setInptArr([...newArr]);
+    // Delete List
+    const deletefunc = (index) => {
+        let newArr =  inptArr.filter((item,ind) => {
+             return (ind != index)
+         })
+         setInptArr(newArr)
+     }
+    // Remove All
+    const removeAll = () => {
+        setInptArr([]);
     }
     return (
         <>
@@ -45,13 +51,14 @@ function TodoList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {inptArr.map((item,index) => {
+                        {inptArr.map((item, index) => {
                             return (<>
-                                <TodoChild key={index} data={item} index={index} deleteList={deleteList}/>
+                                <TodoChild key={index} data={item} index={index} deletefunc={deletefunc} />
                             </>)
                         })}
                     </tbody>
                 </table>
+                <label className='btn btn-dark' onClick={removeAll}>Remove All</label>
             </form>
         </>
     )
