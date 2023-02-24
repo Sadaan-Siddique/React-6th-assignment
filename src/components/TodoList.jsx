@@ -1,12 +1,11 @@
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import TodoChild from './TodoChild';
-import { Link } from 'react-router-dom';
 import '../App.css';
 function TodoList() {
     // React Hooks 
     const [inptData, setInptData] = useState('');
-    const [inptArr, setInptArr] = useState([]);
+    const [arr, setArr] = useState([]);
     const inptValue = useRef();
 
 
@@ -20,19 +19,19 @@ function TodoList() {
         }
     }
     useEffect(() => {
-        setInptArr([...inptArr, inptData])
+        setArr([...arr, inptData])
         inptValue.current.value = '';
     }, [inptData])
     // Delete List
     const deletefunc = (index) => {
-        let newArr =  inptArr.filter((item,ind) => {
-             return (ind != index)
+        let newArr =  arr.filter((item,ind) => {
+             return (ind !== index)
          })
-         setInptArr(newArr)
+         setArr(newArr)
      }
     // Remove All
     const removeAll = () => {
-        setInptArr([]);
+        setArr([]);
     }
     return (
         <>
@@ -51,7 +50,7 @@ function TodoList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {inptArr.map((item, index) => {
+                        {arr.map((item, index) => {
                             return (<>
                                 <TodoChild key={index} data={item} index={index} deletefunc={deletefunc} />
                             </>)
