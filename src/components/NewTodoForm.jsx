@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
@@ -12,7 +12,7 @@ function TodoForm(props) {
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input
-    });
+    }); 
     setInput('');
   };
 
