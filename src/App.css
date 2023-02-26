@@ -2,51 +2,21 @@
   margin: 0px;
   padding: 0px;
 }
-.todo-div {
+.todo-div{
   border: 2px solid red;
 }
-.todo-div input{
-  width:100% ;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  box-shadow: 1px 1px 3px black;
-  padding: 4px 10px;
-  transition: all;
-  transition-duration: 0.7s;
-
+.todo-div ul{
+  border: 2px solid blue;
+  list-style: none;
+  padding:5px 80px ;
 }
-.todo-div input:hover{
-  box-shadow: 1px 1px 8px black;
+.todo-div ul div{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
 }
-.todo-div .list-btn{
-  width: 90%;
-  border-radius: 5px;
-  border: none;
-  font-weight: bolder;
-  background-color: rgb(46, 46, 46);
-  color: white;
-  letter-spacing: 1px;
-  margin-top: 10px;
-  padding: 5px;
-  transition: all;
-  transition-duration: 0.5s;
-}
-.todo-div .list-btn:hover{
-  letter-spacing: 0px;
-  background-color: rgb(39, 39, 39);
-}
-.todo-div table tbody tr td{
-position: relative;
-}
-.todo-div table tbody tr td button{
-  border: none;
-  background-color: transparent;
-  width: 60%;
+.todo-div ul div svg{
   cursor: pointer;
-}
-.todo-div table tbody tr td span{
-  /* position: absolute; */
-  /* left: 90%; */
-  cursor: pointer;
+  position: relative;
+  margin-top: 5px;
 }
