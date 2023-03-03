@@ -60,5 +60,10 @@ h1{
 .todo-div ul li i {
   cursor: pointer;
   position: relative;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  transition: all;
+  transition-duration: 0.2s;
+}
+.todo-div ul li i:hover{
+  color: red;
 }

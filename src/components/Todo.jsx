@@ -69,6 +69,7 @@ function Todo() {
                         arr.map((item, index) => {
                             return (
                                 <>
+                                <hr />
                                     <li key={index}>
                                         <span>{index + 1}. </span>
                                         {item}
@@ -86,13 +87,14 @@ function Todo() {
                                             onClick={() => { checkfunc(item, index) }} class="bi bi-check-circle">
                                         </i> */}
                                     </li>
+                                    <hr />
                                 </>
                             )
                         })
                     }
                 </ul>
                 { deleteBtn ? 
-                    <button onClick={deleteAllFunc}>Delete All</button> :
+                    <button className='mb-3' onClick={deleteAllFunc}>Delete All</button> :
                     ''
                 }
             </div>
