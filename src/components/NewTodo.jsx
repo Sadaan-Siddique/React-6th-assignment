@@ -31,8 +31,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       </div>
       <span className='icons'>
         {/* <RiCloseCircleLine onClick={() => removeTodo(todo.id)} className='delete-icon' /> */}
-        <i onClick={() => removeTodo(todo.id)} class="bi bi-0-circle"></i>
-        <i onClick={() => setEdit({ id: todo.id, value: todo.text })} class="bi bi-coin"></i>
+        <i onClick={() => removeTodo(todo.id)} class="bi bi-trash-fill"></i>
+        <i onClick={() => setEdit({ id: todo.id, value: todo.text })} class="bi bi-pencil-square"></i>
         {/* <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} className='edit-icon' /> */}
       </span>
     </div>
