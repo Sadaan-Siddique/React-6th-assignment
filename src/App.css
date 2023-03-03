@@ -27,7 +27,7 @@ h1{
 .todo-div button {
   margin-left: 10px;
   width: 100px;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   height: 33px;
   border-radius: 5px;
   border: none;
