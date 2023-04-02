@@ -2,38 +2,25 @@ import React, { useState, useRef } from 'react'
 
 function Todo() {
     const [arr, setArr] = useState([]);
-    const [editValue, setEditValue] = useState('')
-    // const [checkValue, setCheckValue] = useState('');
-    // const [newCheck, setNewCheck] = useState('');
+    const [editValue, setEditValue] = useState('');
     const [editCheck, setEditCheck] = useState(false);
-    // const [strikeCheck, setStrikeCheck] = useState(false);
     const [deleteBtn, setDeleteBtn] = useState(false);
+
+    const [checked, setChecked] = useState([]);
+
     const inptValue = useRef();
-    const btnfunc = () => {
-        if (inptValue.current.value === '') {
-            alert('Please Write something')
-        } else {
-        setDeleteBtn(true);
-            if (editCheck) {
-                arr[editValue] = inptValue.current.value;
-                setArr(arr)
-                setEditCheck(false)
-                inptValue.current.value = '';
-            } else {
-                setArr([...arr, inptValue.current.value])
-                console.log(arr)
-                inptValue.current.value = '';
 
-            }
-
-        }
-    }
+    const addItem = (text) => {
+        setArr([...arr, text]);
+        setChecked([...checked, false]);
+    };
 
     const deletefunc = (index) => {
         let newArr = [...arr]
         newArr.splice(index, 1)
         console.log(newArr)
         setArr(newArr)
+        // setDeleteBtn(false);
     }
 
     const editfunc = (index) => {
@@ -42,22 +29,34 @@ function Todo() {
         setEditCheck(true)
     }
 
-    // const checkfunc = (item, index) => {
-    //     setStrikeCheck(true)
-    //     setCheckValue(item);
-    //     let tempCheck = checkValue;
-    //     tempCheck.strike();
-    //     setNewCheck(tempCheck)
-    //     console.log(newCheck);
-    //     // newCheck.strike();
-    //     setStrikeCheck(false)
-
-    // }
+    const toggleChecked = (index) => {
+        const newChecked = [...checked];
+        newChecked[index] = !newChecked[index];
+        setChecked(newChecked);
+    };
 
     const deleteAllFunc = () => {
         setArr([]);
         setDeleteBtn(false);
     }
+
+    const btnfunc = () => {
+        if (inptValue.current.value === '') {
+            alert('Please Write something')
+        } else {
+            setDeleteBtn(true);
+            if (editCheck) {
+                arr[editValue] = inptValue.current.value;
+                setArr(arr)
+                setEditCheck(false)
+                inptValue.current.value = '';
+            } else {
+                addItem(inptValue.current.value)
+                inptValue.current.value = '';
+            }
+        }
+    }
+
     return (
         <>
             <h1 className='text-center mt-5'>Todo List</h1>
@@ -69,23 +68,27 @@ function Todo() {
                         arr.map((item, index) => {
                             return (
                                 <>
-                                <hr />
+                                    <hr />
                                     <li key={index}>
                                         <span>{index + 1}. </span>
-                                        {item}
-                                        {/* {strikeCheck ?
-                                            (newCheck) :
-                                            (item)
-                                        } */}
+                                        <span
+                                            style={{
+                                                textDecoration: checked[index] ? "line-through" : "none"
+                                            }}
+                                        >
+                                            {item}
+                                        </span>
+
                                         <i
                                             onClick={() => { deletefunc(index) }} class="bi bi-trash-fill">
                                         </i>
                                         <i
                                             onClick={() => { editfunc(index) }} class="bi bi-pencil-square">
                                         </i>
-                                        {/* <i
-                                            onClick={() => { checkfunc(item, index) }} class="bi bi-check-circle">
-                                        </i> */}
+                                        <i
+                                            checked={checked[index]}
+                                            onClick={() => toggleChecked(index)} class="bi bi-check-circle">
+                                        </i>
                                     </li>
                                     <hr />
                                 </>
@@ -93,7 +96,7 @@ function Todo() {
                         })
                     }
                 </ul>
-                { deleteBtn ? 
+                {deleteBtn ?
                     <button className='mb-3' onClick={deleteAllFunc}>Delete All</button> :
                     ''
                 }
@@ -101,6 +104,4 @@ function Todo() {
         </>
     )
 }
-
-
 export default Todo
