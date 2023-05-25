@@ -59,10 +59,10 @@ function Todo() {
 
     return (
         <>
-            <h1 className='text-center mt-5'>Todo List</h1>
+            <h1 className='text-center mt-5'>React Todo App</h1>
             <div className='mt-4 todo-div container text-center'>
                 <input type="text" ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
-                <button onClick={btnfunc}>Add</button>
+                <button type='submit' onClick={btnfunc}>Add</button>
                 <ul>
                     {
                         arr.map((item, index) => {
@@ -73,11 +73,19 @@ function Todo() {
                                         <span>{index + 1}. </span>
                                         <span
                                             style={{
-                                                textDecoration: checked[index] ? "line-through" : "none"
+                                                textDecoration: checked[index] ? "line-through" : "none",
+                                                display: 'inline-block',
+                                                width: '300px',
+                                                maxHeight: '50px',
+                                                overflow: 'auto',
+                                                overflowX: 'hidden',
+                                                // whiteSpace: 'pre-wrap',
+                                                wordWrap: 'break-word'
                                             }}
                                         >
                                             {item}
                                         </span>
+
 
                                         <i
                                             onClick={() => { deletefunc(index) }} class="bi bi-trash-fill">
