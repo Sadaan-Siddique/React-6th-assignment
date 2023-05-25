@@ -64,11 +64,12 @@ function Todo() {
                 <input type="text" ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
                 <button type='submit' onClick={btnfunc}>Add</button>
                 <ul>
+                    <hr />
                     {
                         arr.map((item, index) => {
                             return (
                                 <>
-                                    <hr />
+                                    {/* <hr /> */}
                                     <li key={index}>
                                         <span>{index + 1}. </span>
                                         <span
@@ -76,10 +77,10 @@ function Todo() {
                                                 textDecoration: checked[index] ? "line-through" : "none",
                                                 display: 'inline-block',
                                                 width: '300px',
-                                                maxHeight: '50px',
+                                                maxHeight: '24px',
                                                 overflow: 'auto',
                                                 overflowX: 'hidden',
-                                                // whiteSpace: 'pre-wrap',
+                                                whiteSpace: 'pre-wrap',
                                                 wordWrap: 'break-word'
                                             }}
                                         >
