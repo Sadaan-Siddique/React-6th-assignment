@@ -59,7 +59,9 @@ function Todo() {
 
     return (
         <>
-            <h1 className='text-center mt-5'>React Todo App</h1>
+            <div className='p-3'>
+                <h1 className='text-center mt-3'>React Todo App</h1>
+            </div>
             <div className='mt-4 todo-div container text-center'>
                 <input type="text" ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
                 <button type='submit' onClick={btnfunc}>Add</button>
