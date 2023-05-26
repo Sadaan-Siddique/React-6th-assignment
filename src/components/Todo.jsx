@@ -9,6 +9,7 @@ function Todo() {
 
     const inptValue = useRef();
 
+    const reloadTrigger = true; // Constant variable with a value that won't change
     useEffect(() => {
         const todo_items_string = localStorage.getItem('Todo_Items');
         const todo_items_arr = JSON.parse(todo_items_string);
@@ -17,9 +18,10 @@ function Todo() {
             console.log('ni aaye');
         } else {
             console.log('aagaye');
-            setArr(...arr, todo_items_arr);
+            setArr(todo_items_arr);
+            setDeleteBtn(true);
         }
-    }, [])
+    }, [reloadTrigger]);
 
     const addItem = (text) => {
         setArr([...arr, text]);
@@ -70,6 +72,11 @@ function Todo() {
 
     useEffect(() => {
         localStorage.setItem('Todo_Items', JSON.stringify(arr))
+        if (arr.length === 0){
+            setDeleteBtn(false);
+        }else{
+            setDeleteBtn(true);
+        }
     }, [arr])
 
     return (
