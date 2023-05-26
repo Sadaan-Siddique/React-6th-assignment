@@ -66,11 +66,21 @@ h1 {
   .todo-div ul li {
     grid-template-columns: 5% 80% 5% 5% 5%;
   }
+
+  .todo-div ul li i {
+    position: relative;
+    left: 35px;
+  }
+
+  .li_span {
+    width: 220px;
+  }
 }
 
 .todo-div ul {
   list-style: none;
-  padding: 5px 5px;
+  padding: 10px 0px;
+
   /* border: 2px solid red; */
 }
 

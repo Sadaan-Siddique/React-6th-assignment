@@ -73,8 +73,9 @@ function Todo() {
                                 <>
                                     {/* <hr /> */}
                                     <li key={index}>
-                                        <span className='me-2'>{index + 1}. </span>
+                                        <span>{index + 1}. </span>
                                         <span
+                                            className='li_span'
                                             style={{
                                                 textDecoration: checked[index] ? "line-through" : "none",
                                                 display: 'inline-block',
