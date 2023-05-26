@@ -69,11 +69,11 @@ h1 {
 
   .todo-div ul li i {
     position: relative;
-    left: 35px;
+    left: 30px;
   }
 
   .li_span {
-    width: 220px;
+    width: 160px;
   }
 }
 
