@@ -71,17 +71,17 @@ function Todo() {
                                 <>
                                     {/* <hr /> */}
                                     <li key={index}>
-                                        <span>{index + 1}. </span>
+                                        <span className='me-2'>{index + 1}. </span>
                                         <span
                                             style={{
                                                 textDecoration: checked[index] ? "line-through" : "none",
                                                 display: 'inline-block',
-                                                width: '300px',
+                                                // width: '29vw',
                                                 maxHeight: '24px',
                                                 overflow: 'auto',
                                                 overflowX: 'hidden',
                                                 whiteSpace: 'pre-wrap',
-                                                wordWrap: 'break-word'
+                                                wordWrap: 'break-word',
                                             }}
                                         >
                                             {item}

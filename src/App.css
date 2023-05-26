@@ -56,14 +56,14 @@ h1{
   width: 100%;
   /* max-width: ; */
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: 20% 35% 10% 10% 10%;
 
 }
 
 .todo-div ul li i {
   cursor: pointer;
   position: relative;
-  /* margin-top: 5px; */
+  margin-left: 100%;
   transition: all;
   transition-duration: 0.2s;
 }
