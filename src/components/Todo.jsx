@@ -1,14 +1,25 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 function Todo() {
     const [arr, setArr] = useState([]);
     const [editValue, setEditValue] = useState('');
     const [editCheck, setEditCheck] = useState(false);
     const [deleteBtn, setDeleteBtn] = useState(false);
-
     const [checked, setChecked] = useState([]);
 
     const inptValue = useRef();
+
+    useEffect(() => {
+        const todo_items_string = localStorage.getItem('Todo_Items');
+        const todo_items_arr = JSON.parse(todo_items_string);
+        console.log(todo_items_arr);
+        if (todo_items_arr.length === 0) {
+            console.log('ni aaye');
+        } else {
+            console.log('aagaye');
+            setArr(...arr, todo_items_arr);
+        }
+    }, [])
 
     const addItem = (text) => {
         setArr([...arr, text]);
@@ -47,7 +58,7 @@ function Todo() {
             setDeleteBtn(true);
             if (editCheck) {
                 arr[editValue] = inptValue.current.value;
-                setArr(arr)
+                setArr(arr);
                 setEditCheck(false)
                 inptValue.current.value = '';
             } else {
@@ -56,6 +67,10 @@ function Todo() {
             }
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem('Todo_Items', JSON.stringify(arr))
+    }, [arr])
 
     return (
         <>
@@ -92,14 +107,14 @@ function Todo() {
 
 
                                         <i
-                                            onClick={() => { deletefunc(index) }} class="bi bi-trash-fill">
+                                            onClick={() => { deletefunc(index) }} className="bi bi-trash-fill">
                                         </i>
                                         <i
-                                            onClick={() => { editfunc(index) }} class="bi bi-pencil-square">
+                                            onClick={() => { editfunc(index) }} className="bi bi-pencil-square">
                                         </i>
                                         <i
                                             checked={checked[index]}
-                                            onClick={() => toggleChecked(index)} class="bi bi-check-circle">
+                                            onClick={() => toggleChecked(index)} className="bi bi-check-circle">
                                         </i>
                                     </li>
                                     <hr />
