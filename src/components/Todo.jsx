@@ -17,7 +17,7 @@ function Todo() {
         if (todo_items !== '[]') {
             console.log('aagaye');
             setArr(JSON.parse(todo_items));
-            console.log(todo_items);   
+            console.log(todo_items);
             setDeleteBtn(true);
         } else {
             console.log('ni aaye');
@@ -54,28 +54,32 @@ function Todo() {
         setDeleteBtn(false);
     }
 
-    const btnfunc = () => {
-        if (inptValue.current.value === '') {
-            alert('Please Write something')
-        } else {
-            setDeleteBtn(true);
-            if (editCheck) {
-                arr[editValue] = inptValue.current.value;
-                setArr(arr);
-                setEditCheck(false)
-                inptValue.current.value = '';
+    const btnfunc = (event) => {
+        if (event.key === 'Enter' || event.type === 'click') {
+            if (inptValue.current.value === '') {
+                alert('Please Write something')
             } else {
-                addItem(inptValue.current.value)
-                inptValue.current.value = '';
+                setDeleteBtn(true);
+                if (editCheck) {
+                    arr[editValue] = inptValue.current.value;
+                    setArr(arr);
+                    setEditCheck(false)
+                    inptValue.current.value = '';
+                } else {
+                    addItem(inptValue.current.value)
+                    inptValue.current.value = '';
+                }
             }
+        } else {
+            console.log();
         }
     }
 
     useEffect(() => {
         localStorage.setItem('Todo_Items', JSON.stringify(arr))
-        if (arr.length === 0){
+        if (arr.length === 0) {
             setDeleteBtn(false);
-        }else{
+        } else {
             setDeleteBtn(true);
         }
     }, [arr])
@@ -86,7 +90,7 @@ function Todo() {
                 <h1 className='text-center mt-3'>React Todo App</h1>
             </div>
             <div className='mt-4 todo-div container text-center'>
-                <input type="text" ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
+                <input type="text" onKeyPress={btnfunc} ref={inptValue} placeholder='Enter Something' className='ps-2 py-1' />
                 <button type='submit' onClick={btnfunc}>Add</button>
                 <ul>
                     <hr />
