@@ -14,7 +14,7 @@ function Todo() {
         const todo_items_string = localStorage.getItem('Todo_Items');
         const todo_items_arr = JSON.parse(todo_items_string);
         console.log(todo_items_arr);
-        if (todo_items_arr.length === 0) {
+        if (todo_items_arr) {
             console.log('ni aaye');
         } else {
             console.log('aagaye');
