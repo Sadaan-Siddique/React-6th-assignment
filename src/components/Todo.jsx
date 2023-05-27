@@ -15,11 +15,11 @@ function Todo() {
         const todo_items_arr = JSON.parse(todo_items_string);
         console.log(todo_items_arr);
         if (todo_items_arr) {
-            console.log('ni aaye');
-        } else {
             console.log('aagaye');
             setArr(todo_items_arr);
             setDeleteBtn(true);
+        } else {
+            console.log('ni aaye');
         }
     }, [reloadTrigger]);
 
