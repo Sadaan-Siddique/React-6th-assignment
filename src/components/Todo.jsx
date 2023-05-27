@@ -11,12 +11,13 @@ function Todo() {
 
     const reloadTrigger = true; // Constant variable with a value that won't change
     useEffect(() => {
-        const todo_items_string = localStorage.getItem('Todo_Items');
-        const todo_items_arr = JSON.parse(todo_items_string);
-        console.log(todo_items_arr);
-        if (todo_items_arr) {
+        const todo_items = localStorage.getItem('Todo_Items');
+        // const todo_items_arr = JSON.parse(todo_items_string);
+        console.log(todo_items);
+        if (todo_items !== '[]') {
             console.log('aagaye');
-            setArr(todo_items_arr);
+            setArr(JSON.parse(todo_items));
+            console.log(todo_items);   
             setDeleteBtn(true);
         } else {
             console.log('ni aaye');
